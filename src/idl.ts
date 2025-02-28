@@ -1,0 +1,9 @@
+export const ammIdl = { "version": "0.1.0", "name": "bonding_curve", "instructions": 
+    [{ "name": "initialize", "accounts": [{ "name": "bondingCurve", "isMut": true, "isSigner": true },
+         { "name": "owner", "isMut": true, "isSigner": true }, { "name": "systemProgram", "isMut": false, "isSigner": false }], 
+         "args": [{ "name": "initialPrice", "type": "f64" }, { "name": "slope", "type": "f64" }] }, 
+         { "name": "buyToken", "accounts": [{ "name": "bondingCurve", "isMut": true, "isSigner": false }, 
+            { "name": "buyerTokenAccount", "isMut": true, "isSigner": false }, 
+            { "name": "tokenMint", "isMut": false, "isSigner": false }, { "name": "owner", "isMut": false, "isSigner": true },
+             { "name": "tokenProgram", "isMut": false, "isSigner": false }], "args": [{ "name": "quantity", "type": "u64" }] }, { "name": "sellToken", "accounts": [{ "name": "bondingCurve", "isMut": true, "isSigner": false }, { "name": "sellerTokenAccount", "isMut": true, "isSigner": false }, { "name": "tokenMint", "isMut": false, "isSigner": false }, { "name": "owner", "isMut": false, "isSigner": true }, { "name": "tokenProgram", "isMut": false, "isSigner": false }], "args": [{ "name": "quantity", "type": "u64" }] }], "accounts": [{ "name": "BondingCurve", "type": { "kind": "struct", "fields": [{ "name": "owner", "type": "publicKey" }, { "name": "totalSupply", "type": "u64" }, { "name": "initialPrice", "type": "f64" }, { "name": "slope", "type": "f64" }, { "name": "reserveSupply", "type": "u64" }] } }], "errors": [{ "code": 6000, "name": "ExceedsBuyableTokens", "msg": "Exceeded the available buyable tokens." }, 
+    { "code": 6001, "name": "ExceedsSellableTokens", "msg": "Exceeded the available sellable tokens." }] }

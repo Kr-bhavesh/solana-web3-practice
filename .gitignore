@@ -1,0 +1,4 @@
+/.env
+/clean
+/node_modules
+/pnpm-lock.yaml
